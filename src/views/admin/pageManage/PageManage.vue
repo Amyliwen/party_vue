@@ -2,7 +2,9 @@
 <div class="app-container">
   <el-form ref="form" :model="form" :label-position="labelPosition" lable-width="80px" size="medium">
     <el-form-item label="静态页面" :label-width="labelWidth">
-      <el-button>预览页面</el-button>
+      <el-button>预览页面
+        <a href="http://196.168.66.233:9520/publicity.html#/index"></a>
+      </el-button>
     </el-form-item>
     <el-form-item label="页面片段" :label-width="labelWidth">
       <el-button type="text" @click="dialogFormVisible = true">导航栏</el-button>

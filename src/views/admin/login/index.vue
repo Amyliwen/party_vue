@@ -65,7 +65,7 @@
   }
 </script>
 <style rel="stylesheet/scss" lang="scss">
-  @import "../../styles/mixin.scss";
+  @import "../../../styles/mixin";
   $bg: #b31501;
   $dark_gray: #889aa4;
   $light_gray: #eee;

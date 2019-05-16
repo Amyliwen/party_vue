@@ -1,7 +1,6 @@
 <template>
   <div id="App">
-    测试
-    <!--<router-view></router-view>-->
+    <router-view></router-view>
   </div>
 </template>
 
