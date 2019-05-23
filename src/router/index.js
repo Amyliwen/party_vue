@@ -6,8 +6,15 @@ import Layout from '../views/layout/Layout'
 
 const _import = require('./_import_' + process.env.NODE_ENV)
 Vue.use(Router)
+
+// // 路由跳转
+// Vue.prototype.$goRoute = function (index) {
+//   this.$router.push(index)
+// }
+
 export const constantRouterMap = [
   {path: '/login', component: _import('admin/login/index'), hidden: true},
+  {path: '/register', name: "registerLink", component: _import('admin/register/Register'), hidden: true},
   {path: '/404', component: _import('404'), hidden: true},
   {
     path: '/',
@@ -16,7 +23,7 @@ export const constantRouterMap = [
     name: '首页',
     hidden: true,
     children: [
-      {path: 'dashboard', component: _import('admin/dashboard/index')},
+      // {path: 'dashboard', component: _import('admin/dashboard/index')},
       {path: 'userDetial', component: _import('admin/user/UserDetial')}
     ]
   }
@@ -52,7 +59,7 @@ export const asyncRouterMap = [
     children: [
       {
         path: '',
-        name: '党员发展',
+        name: 'member',
         component: _import('admin/partyMember/JoinParty'),
         meta: {title: '党员发展', icon: 'example'},
         menu: 'joinParty'

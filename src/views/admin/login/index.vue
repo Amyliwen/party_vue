@@ -22,12 +22,23 @@
           登录
         </el-button>
       </el-form-item>
+      <!--<router-link :to="{name: 'registerLink'}">注册</router-link>-->
+      <p class="register" @click="handleCommand()">注册</p>
     </el-form>
+
+    <!--<el-button @click="$goRoute('/register')">注册</el-button>-->
+    <!--<el-tabs>-->
+      <!--<el-tab-pane label="注册">-->
+        <!--<register></register>-->
+      <!--</el-tab-pane>-->
+    <!--</el-tabs>-->
   </div>
 </template>
 <script>
+  // import Register from "../register/Register";
   export default {
     name: 'login',
+    // components: {Register},
     data() {
       return {
         loginForm: {
@@ -38,7 +49,8 @@
           username: [{required: true, trigger: 'blur', message: "请输入用户名"}],
           password: [{required: true, trigger: 'blur', message: "请输入密码"}]
         },
-        loading: false
+        loading: false,
+        // register: "/register"
       }
     },
     methods: {
@@ -54,20 +66,26 @@
                 this.$message.error("账号/密码错误");
               }
             }).catch(() => {
-              this.loading = false
+              this.loading = false;
+              console.log("err");
             })
           } else {
             return false
           }
         })
-      }
+      },
+      handleCommand() {
+        // const that = this;
+        // that.$router.push({path: "/register",query:{alert:"页面跳转成功"}})
+        this.$router.push({name: 'registerLink'});
+      },
     }
   }
 </script>
 <style rel="stylesheet/scss" lang="scss">
   @import "../../../styles/mixin";
   $bg: #b31501;
-  $dark_gray: #889aa4;
+  $dark_gray: #666666;
   $light_gray: #eee;
 
   .login-container {
@@ -84,7 +102,7 @@
       -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
-      color: $light_gray;
+      color: $dark_gray;
       height: 47px;
     }
     .el-input {
@@ -109,7 +127,7 @@
     }
     .title {
       font-size: 26px;
-      color: $light_gray;
+      color: $dark_gray;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;
@@ -121,6 +139,8 @@
       width: 400px;
       padding: 35px 35px 15px 35px;
       margin: 120px auto;
+      border-radius: 5px;
+      background-color: #fff;
     }
     .el-form-item {
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -140,6 +160,13 @@
       position: absolute;
       right: 35px;
       bottom: 28px;
+    }
+    .register {
+      font-size:14px;
+      line-height:30px;
+      color: #889aa4;
+      cursor: pointer;
+      float:right;
     }
   }
 </style>
